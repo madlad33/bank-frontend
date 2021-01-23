@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 30px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.header {
+  font-family: "Allerta", sans-serif;
+
+  padding: 25px;
+  text-align: center;
+  font-style: oblique;
+  color: rgb(184, 215, 243);
+  font-size: 30px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.city {
+  text-align: center;
+}
+.mat-row {
+  height: auto;
+}
+
+.mat-cell {
+  padding: 12px 15px;
+}
+
+.mat-header-cell {
+  padding: 12px 15px;
+}
+
+/* .cities .filter {
+  float: left;
+} */
+
+/* .filter {
+  flex: 1;
+} */

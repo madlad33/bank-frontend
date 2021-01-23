@@ -1,0 +1,82 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Allerta&display=swap" rel="stylesheet">
+<div class="header">
+  <h1>Bank Branches</h1>
+</div>
+<section class="container mat-elevation-z8">
+<div class ='cities'>
+<mat-form-field >
+  <mat-label>Choose a city</mat-label>
+  <select matNativeControl [disabled]="disableSelect.value" (change)="selectChangeHandler($event)" class="select-css">
+     <!-- City options -->
+    <option value="pune">Pune</option>
+    <option value="bangalore">Bangalore</option>
+    <option value="mumbai">Mumbai</option>
+    <option value="chennai">Chennai</option>
+    <option value="hyderabad">Hyderabad</option>
+  </select>
+</mat-form-field>
+</div>
+  <div class="filter">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+    <mat-table [dataSource]="dataSource" matSort>
+       <!-- Favourite Column -->
+      <ng-container matColumnDef="favourite">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Favourite </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.favourite}} </mat-cell>
+      </ng-container>
+   <!-- Bank Name Column -->
+      <!-- <ng-container matColumnDef="bank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Bank Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.bank}} </mat-cell>
+      </ng-container> -->
+      <!-- IFSC Column -->
+      <ng-container matColumnDef="ifsc">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> IFSC </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.ifsc}} </mat-cell>
+      </ng-container>
+      <!-- Address Column -->
+      <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
+      </ng-container>
+  
+      <!-- Bank ID Column -->
+      <ng-container matColumnDef="bank_id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Bank ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.bank_id}} </mat-cell>
+      </ng-container>
+  
+  
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.city}} </mat-cell>
+      </ng-container>
+  
+      <!-- District Column -->
+      <ng-container matColumnDef="district">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> District </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.district}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click) = "onRowClicked(row)"
+      >
+      </mat-row>
+    
+
+  </mat-table>
+
+    <mat-paginator [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event">
+    </mat-paginator>
+
+</section>

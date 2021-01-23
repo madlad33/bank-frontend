@@ -5,7 +5,6 @@
 - To add a bank to favorite, click on the respective row and refresh the page.
 - The bank added to the favorite will remain in the local storage and wouldn't lose their state.
 - It might take some time to load the data for the first time.
-- If the data is not being loaded, there will be a need to restart the dyno of the API because of the free tier limitations of  Heroku.
 
 ## Development server
 

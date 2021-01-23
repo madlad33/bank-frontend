@@ -1,6 +1,11 @@
-# BankFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0-rc.0.
+# Bank Frontend
+- Frontend to consume the REST-API.
+- User can filter data on any row, column and search with the respective city.
+- To add a bank to favorite, click on the respective row and refresh the page.
+- The bank added to the favorite will remain in the local storage and wouldn't lose their state.
+- It might take some time to load the data for the first time.
+- If the data is not being loaded, there will be a need to restart the dyno of the API because of the free tier limitations of  Heroku.
 
 ## Development server
 

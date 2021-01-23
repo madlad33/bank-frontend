@@ -10,7 +10,7 @@ import { Observable, throwError } from 'rxjs'
   providedIn: 'root'
 })
 export class BankdetailsService {
-  private baselurl = "https://rest-fyle.herokuapp.com/api/branches/"
+  private baselurl = "https://rest-fyle.herokuapp.com/api/branches/?search=MAHARASHTRA"
 
   constructor(private http:HttpClient) { }
 

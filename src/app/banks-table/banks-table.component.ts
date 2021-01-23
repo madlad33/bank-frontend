@@ -12,8 +12,6 @@ import {FormControl} from '@angular/forms';
 })
 export class BanksTableComponent implements OnInit {
   displayedColumns = [ 'favourite','ifsc','address', 'bank_id', 'city', 'district'];
-  // favourites: number[]
-  // selectedLevel;
   
   selectedCity: string = '';
   projects:any;
@@ -31,7 +29,6 @@ export class BanksTableComponent implements OnInit {
     }
   }
   selectChangeHandler (event: any) {
-    //update the ui
     this.selectedCity = event.target.value;
     this.search(this.selectedCity)
   }
@@ -57,7 +54,7 @@ export class BanksTableComponent implements OnInit {
       }
       this.dataSource = new MatTableDataSource(branches);
       this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource);
+      // console.log(this.dataSource);
     });
 
     
@@ -88,12 +85,8 @@ export class BanksTableComponent implements OnInit {
   }
 
    onRowClicked(row){
-    // const favourites: number[] = 
     this._favouriteService.loadFavourites(row.address);
-    // this.restore();
-    //  console.log(row.address)
-    //  this.refresh();
-    //  this.table.renderRows();
+  
    }
    
   }
@@ -102,7 +95,6 @@ export class BanksTableComponent implements OnInit {
 
 export interface Branch {
   address: string;
-  // bank:string;
   bank_id: number;
   branch: string;
   city: string;

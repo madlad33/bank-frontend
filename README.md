@@ -1,5 +1,5 @@
 
-# BankFrontend
+# Bank Frontend
 - Frontend to consume the REST-API.
 - User can filter data on any row, column and search with the respective city.
 - To add a bank to favorite, click on the respective row and refresh the page.

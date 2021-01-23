@@ -36,26 +36,22 @@ export class BanksTableComponent implements OnInit {
     this.search(this.selectedCity)
   }
   search(selectedValue: string) {
-    selectedValue = selectedValue.trim(); // Remove whitespace
-  selectedValue = selectedValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    selectedValue = selectedValue.trim(); 
+  selectedValue = selectedValue.toLowerCase(); 
    this.dataSource.filter = selectedValue;
    
 }
-// selected(){
-//   alert(this.selectedLevel.name)
-// }
+
 
   constructor(private _bankHttpService: BankdetailsService,private _favouriteService: FavouriteService) {
     this._favouriteService.loadFavourites("SAMPLE");
     this._bankHttpService.getBanks().subscribe(
       
       (branches) => {
-      // console.log(branches)
+      
       const favourites: number[] = this._favouriteService.returnFavourites();
       for (let i = 0; i < branches.length; i++) {
         if (favourites.indexOf(branches[i].address) > -1) {
-          // Amend the branch object to mark it as a favourite
-          console.log(branches[i]);
           branches[i] = {...branches[i], favourite: 'True'}
        }
       }
@@ -67,32 +63,16 @@ export class BanksTableComponent implements OnInit {
     
   }
   
-  restore(){
-    this._bankHttpService.getBanks().subscribe(
-      
-      (branches) => {
-      // console.log(branches)
-      const favourites: number[] = this._favouriteService.returnFavourites();
-      for (let i = 0; i < branches.length; i++) {
-        if (favourites.indexOf(branches[i].address) > -1) {
-          // Amend the branch object to mark it as a favourite
-          // console.log(branches[i]);
-          branches[i] = {...branches[i], favourite: true}
-       }
-      }
-      
-    });
-}
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    filterValue = filterValue.trim(); 
+    filterValue = filterValue.toLowerCase(); 
     this.dataSource.filter = filterValue;
   }
 
   ngOnInit(): void {
     this.dataSource=this.projects;
-    this.restore();
+    // this.restore();
     
     
   }
@@ -110,8 +90,8 @@ export class BanksTableComponent implements OnInit {
    onRowClicked(row){
     // const favourites: number[] = 
     this._favouriteService.loadFavourites(row.address);
-    this.restore();
-     console.log(row.address)
+    // this.restore();
+    //  console.log(row.address)
     //  this.refresh();
     //  this.table.renderRows();
    }

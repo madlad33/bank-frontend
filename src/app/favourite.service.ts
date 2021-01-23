@@ -28,7 +28,7 @@ export class FavouriteService {
   }
   public returnFavourites():any {
     var storedNames = JSON.parse(localStorage.getItem("Fav"));
-    console.log(storedNames);
+    // console.log(storedNames);
     
     return storedNames;
   }
